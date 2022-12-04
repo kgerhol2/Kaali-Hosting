@@ -38,9 +38,9 @@ jobs:
        - name: loop alexa-hosting server
          continue-on-error: true
          run: |
-              git clone https://github.com/${GITHUB_REPOSITORY} loop
+              git clone https://github.com/${GIT_REPOSITORY} loop
               cd loop || exit 1
               echo $(date -u +%T%P) >> loop.txt
               git add loop.txt
               git commit -m "alexa-hosting : Loop $(date -u +%D-%T%P)"
-              git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GITHUB_REPOSITORY} HEAD:alexa-hosting
+              git push -q https://${{ secrets.GIT_TOKEN }}@github.com/${GIT_REPOSITORY} HEAD:alexa-hosting
